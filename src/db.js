@@ -8,10 +8,12 @@ const connection = mysql.createConnection({
 
 connection.connect()
 
-connection.query('select * from planta', (error, results, fields) => {
-  if(error) throw error;
-  console.log('the name is: ', results[0].name)
-  console.log(fields)
-})
+module.exports = connection
 
-connection.end()
+// connection.query('select * from planta', (error, results, fields) => {
+//   if(error) throw error;
+//   console.log('the name is: ', results[0].name)
+//   console.log(fields)
+// })
+
+// connection.end()
