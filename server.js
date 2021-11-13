@@ -1,27 +1,30 @@
 const express = require("express");
 const cors = require('cors');
-const db = require('./src/db.js');
+const { connection } = require("./src/db.ts");
+const bodyparser = require('body-parser')
+// const db = require('./src/db.ts');
 
 const app = express();
 
-const corsOption = {
-  origin: 'http://localhost:3001',
-  optionSucessStatus: 200
-}
 
-app.use(cors(corsOption));
+
+app.use(cors());
+app.use(bodyparser.json())
+app.use(bodyparser.urlencoded({ extended: false }))
 
 
 app.get("/", (request, response)=>{
   response.status(500).json({ok: 'true'});
 });
 
-app.get('/planta', (request, response) => {
-  db.query('select * from planta', (error, results) => {
-    if(error) throw error;
-    response.json(results);
-  })
-})
+app.post('/connection_spreadsheet', connection)
+
+// app.get('/planta', (request, response) => {
+//   db.query('select * from planta', (error, results) => {
+//     if(error) throw error;
+//     response.json(results);
+//   })
+// })
 
 
 
