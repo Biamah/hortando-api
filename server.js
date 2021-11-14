@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require('cors');
-const { connection } = require("./src/db.ts");
+const { connection } = require("./src/controllers/spreadsheet.ts");
 const bodyparser = require('body-parser')
 // const db = require('./src/db.ts');
 

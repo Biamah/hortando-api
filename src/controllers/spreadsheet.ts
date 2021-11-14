@@ -1,3 +1,6 @@
+import { getRepository } from "typeorm"
+import { Spreadsheet } from "../models/entity/spreadsheet"
+
 const { connect } = require("http2") 
 
 const { GoogleSpreadsheet } = require("google-spreadsheet") 
@@ -30,10 +33,10 @@ const connection = async (request, response) => {
             }
         }) 
 
-        // const spreadsheetRepository = getRepository(spreadsheet)
-        // const spreadsheet = spreadsheetRepository.create(spreadSheets)
+        const spreadsheetRepository = getRepository(Spreadsheet)
+        const spreadsheet = spreadsheetRepository.create(spreadSheets)
 
-        return response.json(spreadSheets)
+        return response.json(spreadsheet)
     } catch (e) {
         console.error(e)
     }
