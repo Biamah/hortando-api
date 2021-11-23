@@ -1,12 +1,33 @@
 {
     "compilerOptions": {
       "experimentalDecorators": true,
+      "target": "es6",
       "module": "commonjs",
-      "noImplicitAny": true,
+      "outDir": "dist/",
+      "noImplicitAny": false,
       "removeComments": true,
       "preserveConstEnums": true,
-      "sourceMap": true
+      "sourceMap": true,
+      "noEmit": true,
+      "allowJs": true,
+      "resolveJsonModule": true,
+      "esModuleInterop": true
     },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules", "**/*.spec.ts"]
-  }
+    "strict": false,
+    "emitDecoratorMetadata": true,
+    "files": [
+      "./node_modules/@types/node/index.d.ts",
+      "./node_modules/@types/express/index.d.ts",
+      "./node_modules/@types/cookie-parser/index.d.ts"
+    ],
+    "include": [
+      "server.ts",
+      "src/**/*"
+    ],
+    "exclude": [
+      "typing/*",
+      "node_modules", 
+      "**/*.spec.ts"
+    ]
+    
+}

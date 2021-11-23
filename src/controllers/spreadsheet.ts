@@ -1,12 +1,12 @@
 import { getRepository } from "typeorm"
 import { Spreadsheet } from "../models/entity/spreadsheet"
+import credential from "../service/credential.json"
 
-const { connect } = require("http2") 
+const { connect } = require("http2")
 
 const { GoogleSpreadsheet } = require("google-spreadsheet") 
-const credential = require('../credential.json') 
 
-const connection = async (request, response) => {
+export const connection = async (request, response) => {
     const {urlSheet} = request.body
     try {
         const link = new URL(urlSheet)
@@ -41,8 +41,6 @@ const connection = async (request, response) => {
         console.error(e)
     }
 }
-
-exports.connection = connection
 
 
 
