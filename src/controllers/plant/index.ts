@@ -3,20 +3,20 @@ import { Plant } from "../../models/entity/Plant"
 
 export const addPlant = async (request, response) => {
     
-    const plantName = request.body.name
-    const plantDescription = request.body.description
-    const plantCare = request.body.care
-    const plantImage = request.body.image
+    const name = request.body.name
+    const description = request.body.description
+    const care = request.body.care
+    const image = request.body.image
 
     const plant = {
-        plantName,
-        plantDescription,
-        plantCare,
-        plantImage
+        name,
+        description,
+        care,
+        image
     }
 
     const plantRepository = getRepository(Plant)
-    const plants = await plantRepository.save(plant)
+    const newPlant = await plantRepository.save(plant)
 
-    return response.json({ plants })
+    return response.json({ newPlant })
 }

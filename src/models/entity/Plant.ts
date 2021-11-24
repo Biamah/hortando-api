@@ -5,15 +5,15 @@ export class Plant {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({name: 'plant_name', type: 'varchar'})
-    plantName: string;
+    @Column({name: 'name', type: 'varchar'})
+    name: string;
 
-    @Column({name: 'plant_description', type: 'varchar'})
-    plantDescription: string;
+    @Column({name: 'description', type: 'varchar'})
+    description: string;
 
-    @Column({name: 'plant_care', type: 'varchar'})
-    plantCare: string;
+    @Column({name: 'care', type: 'varchar'})
+    care: string;
 
-    @Column({name: 'plant_image', type: 'varchar'})
-    plantImage: string;
+    @Column({name: 'image', type: 'varchar'})
+    image: string;
 }
