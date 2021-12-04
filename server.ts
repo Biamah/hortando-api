@@ -3,7 +3,6 @@ import { defineRoutes } from "./src/routes"
 
 const express = require("express")
 const cors = require('cors')
-const { connection } = require("./src/controllers/spreadsheet.ts")
 const bodyparser = require('body-parser')
 
 const app = express()
