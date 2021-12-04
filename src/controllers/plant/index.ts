@@ -20,3 +20,10 @@ export const addPlant = async (request, response) => {
 
     return response.json({ newPlant })
 }
+
+export const getAllPlants = async (request, response) => {
+    const plantRepository = getRepository(Plant)
+    let plants = await plantRepository.find({})
+
+    return response.json({ plants })
+}
