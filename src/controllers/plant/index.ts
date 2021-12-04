@@ -27,3 +27,13 @@ export const getAllPlants = async (request, response) => {
 
     return response.json({ plants })
 }
+
+export const delPlants = async (request, response) => {
+    const plantRepository = getRepository(Plant)
+    const result = await plantRepository.delete(request.params.id)
+
+    if(result.affected === 0) {
+        return response.json({ message: "Essa planta não existe mais!"})
+    }
+    return response.json({ message: "Removido com sucesso!"})
+}
